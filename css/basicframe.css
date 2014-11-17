@@ -1,0 +1,217 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	color: inherit;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	background: transparent;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+
+
+body { 
+	font-family: Arial, 'sans-serif';
+	font-size: 16px;
+	color: #3c3c3c;
+	background-color:rgb(245, 245, 178);
+	overflow: scroll;
+	margin: 0px;
+	padding: 0px; 
+}
+
+
+body div div#sortbox {
+	padding-top: 20px;
+	min-width: 730px;
+	position: relative;
+	margin: 0px auto;
+	max-width: 1000px;
+	width: 70%;
+
+}
+
+
+body div div#sortbox img#bigimg {
+	max-height: 370px;
+	max-width: 1070px;
+	position: relative;
+	display: block;
+	width: 95%;
+	margin-left: 5%;
+	margin-top: -20px;
+	min-height: 250px;
+}
+
+
+/*
+
+HEADER
+
+*/
+
+body div  div#head, body div  div#menu{
+	padding: 15px 15px ;
+}
+
+body div  div#head { 
+	height: 55px; 
+	background-color: rgb(44,44,44);
+	border-bottom: #ddd 2px solid;
+	min-width: 900px;
+}
+
+body div  div#head h1 {
+	color: #5A961C;
+	font-size: 32px;
+	font-weight: bold;
+	left: 200px;
+	opacity: 0.9;
+}
+
+body div  div#head span {
+	color: #aaa;
+	font-size: 15px;
+	left: 210px;
+	top: 45px;
+}
+
+body div  div#head img{ 
+	height: 50px;
+	display: inline;
+	left: -10px;
+	opacity: 0.8;
+	top: 0px;
+} 
+
+ 
+
+
+/*
+
+  TEXTBODY
+  
+*/
+
+
+
+
+body div  div#body article {
+	position: relative;
+	line-height: 30px;
+	font-size: 17px;
+	padding: 2%;
+	margin-top: 30px;
+	overflow: hidden;
+	max-width: 900px;
+}
+/*
+	HEADER
+	
+*/
+
+body div > div#body header {
+	position: relative;
+	padding: 20px;
+	margin-right: 4%;
+	overflow: hidden;
+}
+
+body div  div#body header h1 {
+	font-family: 'Times New Roman', 'serif';
+	font-size: 27px;
+	margin-top: 40px;
+	width: 100%;
+	padding: 10px 0px;
+}
+
+
+body div  #body header div.path {
+	max-height: 30px;
+	padding: 5px;
+	border-radius: 10px;
+	color: rgb(234, 152, 50);
+	font-size: 14px;	
+	letter-spacing: 1px;}
+
+
+body div  #body header div.path a {
+	font-weight: bold;
+
+}
+
+body div  #body header div.path a:hover {
+	text-decoration: underline;
+}
+
+/*
+
+  FOOTER
+  
+*/
+body div  div#footer {
+	color: #d82;
+	height: 200px;
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+body div div#footer ul{
+	padding: 0px;
+	padding-left: 2%;
+}
+
+body div div#footer h2 {
+	background-color: #80aa1e;
+	padding: 6px 9px;
+	width: auto;
+	color: #FFF;
+	font-size: 16px;
+	border-radius: 3px;
+	margin-left: -15px;
+	font-weight: normal;
+	text-align: center;
+}
+
+body div  div#footer li{
+	margin-top: 6px;
+	list-style-type: circle;
+}
+body div  div#footer li a{
+	font-size: 15px;
+}
+
+body div table tr {
+	display: block;
+	border-bottom: 1px solid #DDD;
+	width: 100%;
+	float: left;
+	padding: 3px 5px;
+}
+
+table tr td{
+	display: block;
+	float:left;
+	vertical-align: baseline;
+	text-align: left;
+}
+
+	table tr td:nth-child(2) {
+		font-size: 16px;
+		position: relative;
+		width: 60%;
+		padding: 5px 10px;
+	}
+	
+	
+	table tr:hover{
+		background-color: #FAFAFA;
+		border-radius: 3px;
+	}
+	
+	table tr td:nth-child(3){
+		padding: 20px 0px;
+	}

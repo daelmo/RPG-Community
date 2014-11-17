@@ -1,0 +1,7 @@
+h2 {
+font-size: 20px; 
+font-weight: bold;}
+
+.not {
+	text-decoration: line-through;
+	opacity: 0.8;}

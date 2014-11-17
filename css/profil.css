@@ -1,0 +1,84 @@
+#profilhead {
+	position: absolute;
+	left: 13%;
+	bottom: 10%;
+	width: 80%;
+}
+#profilhead img {
+	position: relative;
+	max-width: 200px;
+	box-shadow: 1px 1px 4px #333;
+	margin-bottom: -10px;
+}
+
+#profilhead ul{
+	background-color: #FFF;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	border-radius: 3px;
+	color: #444;
+	font-size: 13px;
+	opacity: 0.5;
+	border: 0.1px solid #CCC;
+	box-shadow: 1px 1px 5px #333;
+}
+
+#profilhead ul li {
+	list-style-type: none;
+	padding: 3px 4px;
+	border-bottom: 0.1px dotted #ccc;
+}
+
+
+#profilhead span {
+	position: relative;
+	color: white;
+	margin-left: 20px;
+	font-size: 27px;
+	text-shadow: 1px 1px 5px #333;
+	font-weight: normal;
+}
+
+.white > a  >div {
+	float: left;
+	height: 150px;
+	width: 150px;
+	border: 1px solid #dedede;
+	margin-right: 20px;
+	padding: 5px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.white > a > div > div {
+	overflow: hidden;	
+	height: 110px;
+	width: 150px;
+	border-radius: 4px;
+}
+
+.white > a > div:hover {
+	opacity: 0.8;
+}
+
+.white div img{
+	max-width: 200px;
+	max-height: 200px;
+	min-height: 100px;
+	min-width: 120px;
+	margin-left: -25%;
+}
+
+
+.white table tr td:first-of-type{
+	color: rgb(136, 136, 136);
+	min-width: 150px;
+	padding: 5px;
+	text-align: right;
+	font-size: 90%;
+}
+
+.white table tr td:last-of-type {
+    padding-left:15px; 
+}

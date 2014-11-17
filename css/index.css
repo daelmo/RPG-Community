@@ -1,0 +1,26 @@
+
+.row4 p {
+	color: #555;
+	position: relative;
+	line-height: 22px;
+	margin-left: 40px;
+	display: block;
+	letter-spacing: 0.1px;
+	width: 90%;
+	}
+
+
+
+.row1 span{
+	font-size: 42px;
+	color: #80af0E;
+	font-weight: bold;
+	text-shadow: 3px 3px 0px #ddd;
+	margin-left: 10px;
+	}
+
+.row1, body div div#footer li a:not() {
+color: #555;
+font-size: 14px !important;
+}
+	

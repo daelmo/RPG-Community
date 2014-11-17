@@ -1,0 +1,61 @@
+body div > div#head div:nth-of-type(1) {
+	position: relative;
+	float: left;
+	margin-left: 10%;
+}
+
+body div > div#head div#shortcut {
+	float: left;
+	min-width: 500px;
+	min-height: 50px;
+	margin-left: 10%;
+}
+
+body div > div#head div#shortcut a {
+	margin-right: 15px;
+	padding: 0px 30px;
+	color: #888;
+	display: block;
+	float: left;
+	position: relative;
+	
+}
+
+body div > div#head div#shortcut form {
+	clear: both;
+	margin-right: 3%;
+}
+
+body div > div#head div#shortcut input, body div > div#head div#shortcut input[type="submit"]:not() { 
+	border-radius: 3px;
+	width: 170px;
+	margin-top: 10px;
+	display: block;
+	font-size: 15px;
+	background-color: rgb(102, 102, 102);
+	float: left; 
+	margin-left: 4%;
+	border: 1px solid rgb(204, 204, 204);
+	color: rgb(221, 221, 221);
+	padding: 5px 3px;
+}
+
+body div  div#head #shortcut a img{ 
+	height: 50px;
+	display: inline;
+	left: -10px;
+	opacity: 0.8;
+	top: 0px;
+} 
+
+body div  div#head #shortcut a div{
+	position: absolute;
+	background-color: red;
+	color: white;
+	padding: 3px 4px;
+	border-radius: 6px;
+	border: 1px solid darkred;
+	top: 37px;
+	right: 30px;
+	font-size: 14px;
+}
