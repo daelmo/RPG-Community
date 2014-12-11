@@ -4,14 +4,13 @@ require_once 'php_class/class.rpg.php';
 require_once 'php_class/class.db.php';
 require_once 'php_class/class.user.php';
 require_once 'php_class/class.session.php';
-require_once 'php_class/class.file.php';
+require_once 'php_class/class.site.php';
+
+//create site
+$site = new site();
 
 //create Session
-$session =  new session();
-$session.start();
-
-//create Database
-$db = new DB();
+$site->getSession()->startSession();
 
 //properties code warnings
 error_reporting(E_ALL);
