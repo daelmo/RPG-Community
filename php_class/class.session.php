@@ -1,6 +1,6 @@
 <?php
 class session{
-	
+	private $user;	
     //start session
     function startSession(){
         session_start();
@@ -8,7 +8,7 @@ class session{
     }
     
     //end session
-    function end(){
+    function endSession(){
         
     }
     

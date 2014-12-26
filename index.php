@@ -1,15 +1,16 @@
 <?php 
-	require_once 'php_inc/inc.header.php';
+	require_once './php_inc/inc.header.php';
+	//create site
+	$site = new mainsite();
 
+	//create Session
+	$site->getSession()->startSession();
 ?> 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-		<?php
-		// put your code here
-		?>
-    </body>
-</html>
+
+<!--- content --->
+
+
+
+<?php
+require_once './php_inc/inc.footer.php';
+?>

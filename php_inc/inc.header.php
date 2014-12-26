@@ -6,11 +6,9 @@ require_once 'php_class/class.user.php';
 require_once 'php_class/class.session.php';
 require_once 'php_class/class.site.php';
 
-//create site
-$site = new site();
+//get all subclasses
+require_once 'php_class/class.mainsite.php';
 
-//create Session
-$site->getSession()->startSession();
 
 //properties code warnings
 error_reporting(E_ALL);

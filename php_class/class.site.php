@@ -4,34 +4,48 @@ class site{
 	private static $db;
 	private static $session;
 	private static $description;
+	private static $img;
 	
-	public static function __construct() {
-		$this->session=new session;
+	public function __construct() {
+		$this->session=new session();
 		$this->db = new DB();
+		initVar();
+	}
+	
+	public function initVar(){
+		$this->img = img;
 	}
     
-    public static function getSession(){
+	public function setImage(){
+		$this->img = $img;
+	}
+	
+	public static function getImage() {
+		return self::$img;
+	}	
+	
+    public function getSession(){
 		return $this->session;
 	}
 	
-	public static function setSession($session){
+	public function setSession($session){
 		$this->session = $session;
 	}
 	
-	public static function getDb() {
+	public function getDb() {
 		return $this->db;
 	}
 
-	public static function getDescription() {
-		return self::$description;
+	public function getDescription() {
+		return $this->description;
 	}
 
-	public static function setDb($db) {
-		self::$db = $db;
+	public function setDb($db) {
+		$this->db= $db;
 	}
 
-	public static function setDescription($description) {
-		self::$description = $description;
+	public function setDescription($description) {
+		$this->description = $description;
 	}
 
 

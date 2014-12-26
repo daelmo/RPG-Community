@@ -1,6 +1,5 @@
 <?php
-echo '
-<!DOCTYPE html>
+echo '<!DOCTYPE html>
 <head>
   <title><?php 
 	if(!empty($file->title)) {echo $file->title;} ?></title>
@@ -24,7 +23,7 @@ echo '
   <link type="text/css" rel="stylesheet" href="/css/class.css">
   <link type="text/css" rel="stylesheet" href="/css/shortcut.css">
   <link type="text/css" rel="stylesheet" href="/css/menu.css" >
-';
+</head>';
 
 ?>
 
