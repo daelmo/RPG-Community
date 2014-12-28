@@ -8,15 +8,11 @@ require_once 'php_class/class.site.php';
 
 //get all subclasses
 require_once 'php_class/class.mainsite.php';
+require_once 'php_class/class.slider.php';
 
 
 //properties code warnings
 error_reporting(E_ALL);
-
-
-//CREATE FILE
-require_once 'php_inc/inc.htmlhead.php';
-require_once 'php_inc/inc.htmlmenu.php';
 
 
 ?>
