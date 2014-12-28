@@ -2,13 +2,13 @@
 class session{
 	private $user;	
     //start session
-    function startSession(){
+    public function startSession(){
         session_start();
 		ob_start();
     }
     
     //end session
-    function endSession(){
+    public function endSession(){
         
     }
     
