@@ -1,27 +1,42 @@
 <?php
 
 class site{
-	private static $db;
-	private static $session;
-	private static $description;
-	private static $img;
+	private $db;
+	private $session;
+	private $path;
+	private $ID;
 	
-	public function __construct() {
-		$this->session=new session();
+	private $title;
+	private $img;
+	private $description;
+	private $access;
+	
+	public function __construct($ID) {
+		$this->ID = $ID;
 		$this->db = new DB();
-		initVar();
+		$this->db= $this->db->initDB(); 
+		$this->session = new session();
+		$this->initVar();
 	}
 	
 	public function initVar(){
-		$this->img = img;
+		$sql= "Select * from file where ID=$this->ID limit 1"; 
+		$result = mysqli_query($this->db, $sql);
+		//TODO if (mysqli_num_rows($result) == 0) {header("Location:http://localhost/Error/no_file.php");}
+		$file= mysqli_fetch_object($result);
+		//initialisiere
+		$this->description = $file->meta_beschreibung;
+		$this->title = $file->title;
+		$this->access = $file->access;
+		
 	}
     
 	public function setImage(){
 		$this->img = $img;
 	}
 	
-	public static function getImage() {
-		return self::$img;
+	public function getImage() {
+		return $this->img;
 	}	
 	
     public function getSession(){
