@@ -1,5 +1,4 @@
-<?php
-echo " <div>
+<div>
 		<!-- Header -->
 	<div id='head'>
 		<div>
@@ -76,9 +75,4 @@ echo " <div>
 			
 			</li>	
 	</ul>
-</nav>";
-		
-
-
-?>
-
+</nav>

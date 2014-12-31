@@ -1,8 +1,6 @@
-<?php
-echo '<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
-  <title><?php 
-	if(!empty($file->title)) {echo $file->title;} ?></title>
+  <title><?php echo $site->getTitle(); ?> </title>
   <link rel="icon" href="/img/favicon/favicon.ico" >
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta http-equiv="pragma" content="no-cache">
@@ -10,8 +8,7 @@ echo '<!DOCTYPE html>
   <meta name="language" content="de">
   <meta name="publisher" content="Josephine Rehak">
   <meta name="copyright" content="Josephine Rehak">
-  <meta name="description" content=" 
- // <?php if(!empty($file->meta_beschreibung)) {echo $file->meta_beschreibung;} ?>" >
+  <meta name="description" content="<?php echo $site->getDescription(); ?>" >
   <meta name="keywords" content="">
   <meta name="page-topic" content="Rollenspiele, RPG">
   <meta name="page-type" content="Community">
@@ -23,7 +20,6 @@ echo '<!DOCTYPE html>
   <link type="text/css" rel="stylesheet" href="/css/class.css">
   <link type="text/css" rel="stylesheet" href="/css/shortcut.css">
   <link type="text/css" rel="stylesheet" href="/css/menu.css" >
-</head>';
-
-?>
+  <link type="text/css" rel="stylesheet" href="/css/slider.css" >
+</head>
 
