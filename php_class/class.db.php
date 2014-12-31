@@ -12,6 +12,10 @@ class DB{
 		return mysqli_close($db);
 	}
 	
+	public function execute($db, string $sql){
+		mysqli_query($db, $sql);
+	}
+	
 
 }
 
