@@ -2,7 +2,7 @@
 
 class site{
 	private $db;
-	private $session;
+	private $session = null;
 	private $path;
 	private $ID;
 	
@@ -15,7 +15,6 @@ class site{
 		$this->ID = $ID;
 		$this->db = new DB();
 		$this->db= $this->db->initDB(); 
-		$this->session = new session();
 		$this->initVar();
 	}
 	
@@ -30,7 +29,48 @@ class site{
 		$this->access = $file->access;
 		
 	}
-    
+	
+	public function getPath() {
+		return $this->path;
+	}
+
+	public function getID() {
+		return $this->ID;
+	}
+
+	public function getTitle() {
+		return $this->title;
+	}
+
+	public function getImg() {
+		return $this->img;
+	}
+
+	public function getAccess() {
+		return $this->access;
+	}
+
+	public function setPath($path) {
+		$this->path = $path;
+	}
+
+	public function setID($ID) {
+		$this->ID = $ID;
+	}
+
+	public function setTitle($title) {
+		$this->title = $title;
+	}
+
+	public function setImg($img) {
+		$this->img = $img;
+	}
+
+	public function setAccess($access) {
+		$this->access = $access;
+	}
+
+	    
 	public function setImage(){
 		$this->img = $img;
 	}
