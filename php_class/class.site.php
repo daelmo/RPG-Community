@@ -69,8 +69,7 @@ class site{
 	public function setAccess($access) {
 		$this->access = $access;
 	}
-
-	    
+  
 	public function setImage(){
 		$this->img = $img;
 	}
@@ -102,9 +101,5 @@ class site{
 	public function setDescription($description) {
 		$this->description = $description;
 	}
-
-
 }
-
-
 ?>
