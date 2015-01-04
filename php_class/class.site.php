@@ -11,6 +11,10 @@ class site{
 	private $description;
 	private $access;
 	
+	/**
+	 * constructs a standard website
+	 * @param type $ID
+	 */
 	public function __construct($ID) {
 		$this->ID = $ID;
 		$this->db = new DB();
@@ -18,7 +22,10 @@ class site{
 		$this->initVar();
 	}
 	
-	public function initVar(){
+	/**
+	 * initialize variables from database
+	 */
+	protected function initVar(){
 		$sql= "Select * from file where ID=$this->ID limit 1"; 
 		$result = mysqli_query($this->db, $sql);
 		//TODO if (mysqli_num_rows($result) == 0) {header("Location:http://localhost/Error/no_file.php");}
@@ -27,79 +34,78 @@ class site{
 		$this->description = $file->meta_beschreibung;
 		$this->title = $file->title;
 		$this->access = $file->access;
-		
 	}
 	
+	/**
+	 * gets location of file
+	 * @return string
+	 */
 	public function getPath() {
 		return $this->path;
 	}
-
+	
+	/**
+	 * gets ID of page
+	 * @return int
+	 */
 	public function getID() {
 		return $this->ID;
 	}
-
+	
+	/**
+	 * gets htmltitle of page
+	 * @return string
+	 */
 	public function getTitle() {
 		return $this->title;
 	}
 
+	/**
+	 * gets path to img for page
+	 * @return string
+	 */
 	public function getImg() {
 		return $this->img;
 	}
-
+	
+	/**
+	 * gets value for permission to access the website 
+	 * @return int
+	 */
 	public function getAccess() {
 		return $this->access;
 	}
 
-	public function setPath($path) {
-		$this->path = $path;
-	}
-
-	public function setID($ID) {
-		$this->ID = $ID;
-	}
-
-	public function setTitle($title) {
-		$this->title = $title;
-	}
-
+	/**
+	 * sets path to image new
+	 * @param string $img
+	 */
 	public function setImg($img) {
 		$this->img = $img;
 	}
-
-	public function setAccess($access) {
-		$this->access = $access;
-	}
-  
-	public function setImage(){
-		$this->img = $img;
-	}
 	
-	public function getImage() {
-		return $this->img;
-	}	
-	
+	/**
+	 * @return session-object
+	 */
     public function getSession(){
 		return $this->session;
 	}
 	
+	/**
+	 * sets session object
+	 * @param session $session
+	 */
 	public function setSession($session){
 		$this->session = $session;
 	}
-	
-	public function getDb() {
-		return $this->db;
-	}
 
+	/**
+	 * gets description of page for html header
+	 * @return string
+	 */
 	public function getDescription() {
 		return $this->description;
 	}
 
-	public function setDb($db) {
-		$this->db= $db;
-	}
-
-	public function setDescription($description) {
-		$this->description = $description;
-	}
 }
 ?>

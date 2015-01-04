@@ -1,14 +1,11 @@
 <?php
-
 /**
  * class handels all interactions with database
  * 
  * @author Josephine Rehak 
  */
 class DB{
-	
-	function __construct(){}
-	
+
 	/**
 	 * initalizes database connection
 	 * @return database-object
@@ -28,10 +25,10 @@ class DB{
 	
 	/**
 	 * executes and proofs SQL strings
-	 * @param type $db
+	 * @param db $db
 	 * @param string $sql
 	 */
-	public function execute($db, string $sql){
+	public function execute($db, $sql){
 		mysqli_query($db, $sql) or die("Invalid SQL!");
 	}
 }

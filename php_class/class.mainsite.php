@@ -7,12 +7,12 @@
  * @author Josephine Rehak
  */
 class mainsite extends site{
-
+	/**stores slider object*/
 	private $slider;
 	
 	/**
 	 * constructor wich uses parent constructor to get data from database
-	 * @param int $ID
+	 * @param integer $ID
 	 */
 	public function __construct($ID) {
 		parent::__construct($ID);
