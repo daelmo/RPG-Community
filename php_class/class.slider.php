@@ -1,5 +1,10 @@
 <?php
+
+/**
+ * builds slider in mainpage
+ */
 class slider {
+	
 
 	function build(){
 		echo '<script type="text/javascript">

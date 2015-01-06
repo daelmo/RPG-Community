@@ -1,8 +1,14 @@
 <?php
 
 class site{
+	/** saves db object for db interactions
+	 * @var db */
 	private $db;
+	/** stores sessions of user
+	 * @var session */
 	private $session = null;
+	/** stores path
+	 * @var string */
 	private $path;
 	private $ID;
 	
@@ -13,7 +19,7 @@ class site{
 	
 	/**
 	 * constructs a standard website
-	 * @param type $ID
+	 * @param int $ID
 	 */
 	public function __construct($ID) {
 		$this->ID = $ID;
@@ -74,6 +80,14 @@ class site{
 	 */
 	public function getAccess() {
 		return $this->access;
+	}
+	
+	/**
+	 * check if access to page is right
+	 * @return boolean
+	 */
+	public function proofAccess(){
+		return false;
 	}
 
 	/**
