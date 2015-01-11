@@ -1,4 +1,5 @@
 <?php
+/** class describes a user */
 class user{
 	
 	private $vorname;
@@ -12,6 +13,7 @@ class user{
 	private $img;
 	private $lng;
 	
+	/** constructs a user objekt to save user data*/
 	function __construct($vorname, $nachname, $birth, $rang){
 		$this->vorname = $vorname;
 		$this->nachname = $nachname;
@@ -19,6 +21,7 @@ class user{
 		$this->rang = $rang;
 	}
 	
+	/** gets name of user */
 	function getName(){
 		return $vorname . " " . $nachname;
 	}

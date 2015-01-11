@@ -7,17 +7,13 @@ class session{
 	private $userID = null;
 	private $hashPWD =  null;
 	
-    /**
-	 * starts a session
-	 */
+    /** starts a session*/
     public function startSession(){
         session_start();
 		ob_start();
     }
 	
-	/**
-	 * check the user ID of $_Session 
-	 */
+	/**check the user ID of $_Session */
 	function checkUserID (){
 			
 	}
