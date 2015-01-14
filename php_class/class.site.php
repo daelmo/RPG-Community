@@ -1,17 +1,12 @@
 <?php
 
 class site{
-	/** saves db object for db interactions
-	 * @var db */
 	private $db;
-	/** stores sessions of user
-	 * @var session */
 	private $session = null;
-	/** stores path
-	 * @var string */
+	private $user = null;
+	
 	private $path;
 	private $ID;
-	
 	private $title;
 	private $img;
 	private $description;
@@ -113,13 +108,23 @@ class site{
 		$this->session = $session;
 	}
 
-	/**
-	 * gets description of page for html header
+	/** gets description of page for html header
 	 * @return string
 	 */
 	public function getDescription() {
 		return $this->description;
 	}
 
+	/**sets user
+	 * @param user $user*/
+	public function setUser($user) {
+		$this->user = $user;
+	}
+	
+	/**returns User
+	 * @return user */
+	public function getUser() {
+		return $this->user;
+	}
 }
 ?>

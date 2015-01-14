@@ -3,9 +3,13 @@
  * class handels the session of an user on a website
  */
 class session{
-	private $user = null;	
 	private $userID = null;
 	private $hashPWD =  null;
+	protected $salt = "Salz";
+	
+	function __construct() {
+		
+	}
 	
     /** starts a session*/
     public function startSession(){
@@ -13,61 +17,48 @@ class session{
 		ob_start();
     }
 	
-	/**check the user ID of $_Session */
-	function checkUserID (){
+	/**check the user of $_Session */
+	function checkUser (){
+		if(is_numeric($_SESSION["UID"])){
+			$sql = "";
 			
+		}else{
+			destroySession();
+		}
+		
 	}
 
-	/**
-	 * checks PWD during login
-	 */
+	/** checks PWD during login */
 	function checkPWD(){
 		
 		
 	}
 	
-	/**
-	 * writes in $_Session
-	 */
-	function writeSession(){
+	function generateUser(){
 		
 	}
+	
+	/**writes in $_Session
+	 * @param int $id 
+	 * @param string $hash passwordhash	 */
+	function writeSession($id, $hash){
+		$_SESSION["UID"] = $id;
+		$_SESSION["HASH"] = $hash;
+	}
     
-    /**
-	 * ends session on website
-	 */
+    /** ends session on website*/
     public function endSession(){
         
     }
- 
-	/**
-	 * returns User
-	 * @return user
-	 */
-	public function getUser() {
-		return $this->user;
-	}
 
-	/**
-	 * returns user ID
-	 * @return int
-	 */
+	/**returns user ID
+	 * @return int */
 	public function getUserID() {
 		return $this->userID;
 	}
 
-	/**
-	 * sets user
-	 * @param user $user
-	 */
-	public function setUser($user) {
-		$this->user = $user;
-	}
-
-	/**
-	 * sets user ID
-	 * @param int $userID
-	 */
+	/**sets user ID
+	 * @param int $userID */
 	public function setUserID($userID) {
 		$this->userID = $userID;
 	}
