@@ -21,6 +21,11 @@ class user{
 		$this->rang = $rang;
 	}
 	
+	/** initializes values*/
+	function initVar(){
+		
+	}
+	
 	/** gets name of user */
 	function getName(){
 		return $vorname . " " . $nachname;
