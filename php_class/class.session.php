@@ -1,13 +1,25 @@
 <?php
 /**
  * class handels the session of an user on a website
+ * 
+ * @author Josephine Rehak
  */
 class session{
 	private $userID = null;
 	private $hashPWD =  null;
-	protected $salt = "Salz";
+	protected $salt = "Salz"; // I will change that before use ^^
 	
-	function __construct() {
+	/**
+	 *  creates user out of mail and pwd or hash and id */
+	function __construct($string, $ident, $passw) {
+		switch ($string):
+			case ("id_hash"):
+				$sql = "Select * from member where id=".$id ." limit 1";
+				
+				break;
+			case ("mail_pwd"):
+				break;
+		endswitch;
 		
 	}
 	

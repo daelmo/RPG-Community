@@ -1,7 +1,12 @@
 <?php
 
+/** class handels a single site
+ * 
+ * @author Josephine Rehak
+ */
+
 class site{
-	private $db;
+	private $db =null;
 	private $session = null;
 	private $user = null;
 	
@@ -12,23 +17,17 @@ class site{
 	private $description;
 	private $access;
 	
-	/**
-	 * constructs a standard website
-	 * @param int $ID
-	 */
+	/**constructs a standard website
+	 * @param int $ID*/
 	public function __construct($ID) {
 		$this->ID = $ID;
 		$this->db = new DB();
-		$this->db= $this->db->initDB(); 
-		$this->initVar();
 	}
 	
-	/**
-	 * initialize variables from database
-	 */
+	/** initialize variables from database */
 	protected function initVar(){
 		$sql= "Select * from file where ID=$this->ID limit 1"; 
-		$result = mysqli_query($this->db, $sql);
+		$result = $this->db->execute($sql);
 		//TODO if (mysqli_num_rows($result) == 0) {header("Location:http://localhost/Error/no_file.php");}
 		$file= mysqli_fetch_object($result);
 		//initialisiere
@@ -37,58 +36,44 @@ class site{
 		$this->access = $file->access;
 	}
 	
-	/**
-	 * gets location of file
-	 * @return string
-	 */
+	/**gets location of file
+	 * @return string */
 	public function getPath() {
 		return $this->path;
 	}
 	
-	/**
-	 * gets ID of page
-	 * @return int
-	 */
+	/** gets ID of page
+	 * @return int */
 	public function getID() {
 		return $this->ID;
 	}
 	
-	/**
-	 * gets htmltitle of page
-	 * @return string
-	 */
+	/** gets htmltitle of page
+	 * @return string */
 	public function getTitle() {
 		return $this->title;
 	}
 
-	/**
-	 * gets path to img for page
-	 * @return string
-	 */
+	/** gets path to img for page
+	 * @return string */
 	public function getImg() {
 		return $this->img;
 	}
 	
-	/**
-	 * gets value for permission to access the website 
-	 * @return int
-	 */
+	/** gets value for permission to access the website 
+	 * @return int */
 	public function getAccess() {
 		return $this->access;
 	}
 	
-	/**
-	 * check if access to page is right
-	 * @return boolean
-	 */
+	/** check if access to page is right
+	 * @return boolean */
 	public function proofAccess(){
 		return false;
 	}
 
-	/**
-	 * sets path to image new
-	 * @param string $img
-	 */
+	/** sets path to image new
+	 * @param string $img */
 	public function setImg($img) {
 		$this->img = $img;
 	}
