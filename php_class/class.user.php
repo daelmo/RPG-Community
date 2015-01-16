@@ -1,5 +1,8 @@
 <?php
-/** class describes a user */
+/** class describes a user 
+ * 
+ * @author Josephine Rehak
+ */
 class user{
 	
 	private $vorname;
