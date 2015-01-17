@@ -6,14 +6,14 @@
 			<span> hi</span>
 		</div>
 		
-		/*
+		
 		 <div id='shortcut'>
 		<form method='post' action=''>
 			<input type='text' name='email' placeholder='E-Mail'>
 			<input type='password' name='pwd' placeholder='Passwort'>
 			<input type='submit' name='loginsubmit' value='Go'>
-		</form>';
-		 */
+		</form>
+		 
 </div>
 </div>
 <nav>
