@@ -20,8 +20,8 @@ class session{
 			
 			case ("mail_pwd"):	
 				$sql = "Select id from member where mail=".$ident ." limit 1";
-				$result = parent::$db->execute($sql);
-				$this->userID = $result;
+				$result = parent::$db->execute($sql); 
+				$this->userID = mysqli_result($result, 0);
 				$this->hashPWD = hash($passw);
 				break;
 		endswitch;	
@@ -42,22 +42,28 @@ class session{
 	function checkUser (){
 		if(is_numeric($_SESSION["UID"])){
 			$sql = "";
-			
+			//TODO
 		}else{
 			destroySession();
 		}
 		
 	}
 
-	/** checks PWD during login */
+	/** checks PWD during login
+	 * @return boolean */
 	function checkPWD(){
-		
-		
+		$sql = "Select id, pwd from member where id =$this->userID";
+		$result = parent::$db->execute($sql);
+		$check = mysqli_fetch_object($result);
+		if (($this->hashPWD = $check->pwd) && ($this->userID == $check->id) ){
+			return true;
+		}
+	return false;
 	}
 	
 	/** generates user after checked session for site */
 	function generateUser(){
-	
+		$user = new user($this->userID);
 		return $user;
 	}
 	
@@ -72,7 +78,6 @@ class session{
     /** ends session on website*/
     public function destroySession(){
         session_destroy();
-		$this = null;
     }
 
 	/**returns user ID

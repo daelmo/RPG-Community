@@ -17,16 +17,20 @@ class user{
 	private $lng;
 	
 	/** constructs a user objekt to save user data*/
-	function __construct($vorname, $nachname, $birth, $rang){
-		$this->vorname = $vorname;
-		$this->nachname = $nachname;
-		$this->birth = $birth;
-		$this->rang = $rang;
+	function __construct($id){
+		$this->initVar();
+		
+		
 	}
 	
 	/** initializes values*/
 	function initVar(){
-		
+		$sql= "Select * from member where id=$this->userID";
+		$result = parent::$db->execute($sql);
+		$this->vorname = $vorname;
+		$this->nachname = $nachname;
+		$this->birth = $birth;
+		$this->rang = $rang;
 	}
 	
 	/** gets name of user */
