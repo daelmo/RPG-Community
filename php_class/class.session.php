@@ -41,8 +41,14 @@ class session{
 	/**check the user of $_Session */
 	function checkUser (){
 		if(is_numeric($_SESSION["UID"])){
-			$sql = "";
-			//TODO
+			$sql = "Select id, pwd from member where id = " . $_SESSION["UID"];
+			$result = parent::$db->execute($sql);
+			$check = mysqli_fetch_object($result);
+			if (($this->hashPWD == $check->pwd) && ($this->userID == $check->id) ){
+				return true;
+			}else{
+				return false;
+			}
 		}else{
 			destroySession();
 		}
@@ -55,7 +61,7 @@ class session{
 		$sql = "Select id, pwd from member where id =$this->userID";
 		$result = parent::$db->execute($sql);
 		$check = mysqli_fetch_object($result);
-		if (($this->hashPWD = $check->pwd) && ($this->userID == $check->id) ){
+		if (($this->hashPWD == $check->pwd) && ($this->userID == $check->id) ){
 			return true;
 		}
 	return false;
