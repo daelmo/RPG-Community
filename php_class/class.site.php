@@ -30,7 +30,6 @@ class site{
 		$result = $this->db->execute($sql);
 		//TODO if (mysqli_num_rows($result) == 0) {header("Location:http://localhost/Error/no_file.php");}
 		$file= mysqli_fetch_object($result);
-		//initialisiere
 		$this->description = $file->meta_beschreibung;
 		$this->title = $file->title;
 		$this->access = $file->access;
