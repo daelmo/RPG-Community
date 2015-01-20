@@ -9,15 +9,14 @@ class site{
 	private $db =null;
 	private $session = null;
 	private $user = null;
-	
-	private $path;
 	private $ID;
+	
 	private $title;
 	private $img;
 	private $description;
 	private $access;
 	
-	/**constructs a standard website
+	/** constructs a standard website
 	 * @param int $ID*/
 	public function __construct($ID) {
 		$this->ID = $ID;
@@ -33,12 +32,6 @@ class site{
 		$this->description = $file->meta_beschreibung;
 		$this->title = $file->title;
 		$this->access = $file->access;
-	}
-	
-	/**gets location of file
-	 * @return string */
-	public function getPath() {
-		return $this->path;
 	}
 	
 	/** gets ID of page
@@ -77,35 +70,32 @@ class site{
 		$this->img = $img;
 	}
 	
-	/**
+	/** gets complete session
 	 * @return session-object
 	 */
     public function getSession(){
 		return $this->session;
 	}
 	
-	/**
-	 * sets session object
-	 * @param session $session
-	 */
+	/** sets session object
+	 * @param session $session */
 	public function setSession($session){
 		$this->session = $session;
 	}
 
 	/** gets description of page for html header
-	 * @return string
-	 */
+	 * @return string */
 	public function getDescription() {
 		return $this->description;
 	}
 
-	/**sets user
+	/** sets user
 	 * @param user $user*/
 	public function setUser($user) {
 		$this->user = $user;
 	}
 	
-	/**returns User
+	/** returns User
 	 * @return user */
 	public function getUser() {
 		return $this->user;

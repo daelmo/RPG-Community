@@ -4,39 +4,66 @@
  * @author Josephine Rehak
  */
 class user{
-	
-	private $vorname;
-	private $nachname;
+	private $profil;
 	private $id;
-	private $birth;
-	private $email;
-	private $aktiv;
-	private $beitritt;
-	private $rang;
-	private $img;
-	private $lng;
+	
+	public $vorname;
+	public $nachname;
+	public $birth;
+	public $email;
+	public $aktiv;
+	public $beitritt;
+	public $rang;
+	public $img;
+	public $lng;
 	
 	/** constructs a user objekt to save user data*/
 	function __construct($id){
-		$this->initVar();
-		
-		
+		$this->initVar($id);	
 	}
 	
 	/** initializes values*/
-	function initVar(){
-		$sql= "Select * from member where id=$this->userID";
+	function initVar($id){
+		$sql= "Select * from member where id=$id";
 		$result = parent::$db->execute($sql);
-		$this->vorname = $vorname;
-		$this->nachname = $nachname;
-		$this->birth = $birth;
-		$this->rang = $rang;
+		$user = mysqli_fetch_object($result);
+		$this->vorname = $user->vorname;
+		$this->nachname = $user->nachname;
+		$this->birth = $user->birth;
+		$this->rang = $user->rang;
+		$this->img =$user->img;
+		$this->email = $user->email;
+		$this->aktiv = $user->aktiv;
+		$this->beitritt = $user->beitritt;
 	}
 	
 	/** gets name of user */
 	function getName(){
 		return $vorname . " " . $nachname;
 	}
+	
+	/** delete user completely from system */
+	function eraseUser(){
+		
+	}
+	
+	/** */
+	function sendWarning(){
+		
+	}
+	
+	function givePoint(){
+		
+	} 
+	
+	function takePoint(){
+		
+	}
+	
+	function createUser(){
+		
+	}
+	 
 	
 	
 	

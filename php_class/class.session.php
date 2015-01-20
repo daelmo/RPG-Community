@@ -7,10 +7,9 @@
 class session{
 	private $userID = null;
 	private $hashPWD = null;
-	protected $salt = "Salz"; // I will change that before use ^^
+	protected $salt = "rpg"; // I will change that before use ^^
 	
-	/**
-	 *  creates session out of mail and pwd or hash and id */
+	/** creates session out of mail and pwd or hash and id */
 	function __construct($string, $ident, $passw) {
 		switch ($string):
 			case ("id_hash"):
@@ -27,6 +26,9 @@ class session{
 		endswitch;	
 	}
 	
+	/** hashes passwords 
+	 *	@param string $pwd Password
+	 * 	@return string Hash */
 	function hash($pwd){
 		$hash = md5($salt . $pwd);
 		return $hash;
@@ -52,7 +54,6 @@ class session{
 		}else{
 			destroySession();
 		}
-		
 	}
 
 	/** checks PWD during login
@@ -79,6 +80,7 @@ class session{
 	function writeSession($id, $hash){
 		$_SESSION["UID"] = $id;
 		$_SESSION["HASH"] = $hash;
+		//Location
 	}
     
     /** ends session on website*/
@@ -90,12 +92,6 @@ class session{
 	 * @return int */
 	public function getUserID() {
 		return $this->userID;
-	}
-
-	/**sets user ID
-	 * @param int $userID */
-	public function setUserID($userID) {
-		$this->userID = $userID;
 	}
 
 }

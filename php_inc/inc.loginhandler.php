@@ -4,7 +4,6 @@ if(!is_empty($_POST["submit"]) && !is_empty($_POST["email"]) && !is_empty($_POST
 	$site.setSession(new session("mail_pwd", $_POST["mail"], $_POST["pwd"] ));
 	if($site.getSession.checkPWD()){
 		$site.getSession.writeSession();
-		//Location
 	} else{
 		$site.setSession(null);
 	}
