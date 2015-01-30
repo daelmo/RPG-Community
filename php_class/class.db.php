@@ -23,7 +23,7 @@ class DB{
 	/** executes and proofs SQL strings
 	 * @param string $sql */
 	public function execute($sql){
-		return mysqli_query($this->db, $sql) or die("Invalid SQL!");
+		return mysqli_query($this->db, $sql)or die('Unable to run query:' . mysql_error());
 	}
 }
 

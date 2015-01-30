@@ -14,5 +14,15 @@ require_once 'php_class/class.slider.php';
 //properties code warnings
 error_reporting(E_ALL);
 
+//Session
+	session_start();
+
+//configures include path
+//set_include_path("RPG-Community/");
+//ini_set('include_path', '/opt/lampp/htdocs/RPG-Community/');
+
+
 
 ?>
+
+

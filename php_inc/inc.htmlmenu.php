@@ -3,7 +3,7 @@
 	<div id='head'>
 		<div>
 			<a href='/'><h1> RPG</h1></a>
-			<span> hi</span>
+			<span> <?php if (!empty($_SESSION["ID"])){ echo "hi";} ?></span>
 		</div>
 		
 		

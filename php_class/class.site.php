@@ -100,5 +100,11 @@ class site{
 	public function getUser() {
 		return $this->user;
 	}
+	
+	public function getDB() {
+		return $this->db;
+	}
+
+
 }
 ?>

@@ -8,9 +8,19 @@ class session{
 	private $userID = null;
 	private $hashPWD = null;
 	protected $salt = "rpg"; // I will change that before use ^^
+	private $db = null;
+	
+		/** hashes passwords 
+	 *	@param string $pwd Password
+	 * 	@return string Hash */
+	function myHash($pwd){
+		$hash = md5("$this->salt"."$pwd");
+		return $hash;
+	}
 	
 	/** creates session out of mail and pwd or hash and id */
-	function __construct($string, $ident, $passw) {
+	function __construct($db, $string, $ident, $passw) {
+		$this->db = $db;
 		switch ($string):
 			case ("id_hash"):
 				$this->userID = $ident;
@@ -18,33 +28,22 @@ class session{
 				break;
 			
 			case ("mail_pwd"):	
-				$sql = "Select id from member where mail=".$ident ." limit 1";
-				$result = parent::$db->execute($sql); 
-				$this->userID = mysqli_result($result, 0);
-				$this->hashPWD = hash($passw);
+				$email = htmlspecialchars($ident);
+				$sql = "Select * from member where email='$email'";
+				$result = $this->db->execute($sql); 
+				$ergebnis = mysqli_fetch_object($result);
+				$this->userID = $ergebnis->id;
+				$this->hashPWD = $this->myHash($passw);
 				break;
 		endswitch;	
 	}
-	
-	/** hashes passwords 
-	 *	@param string $pwd Password
-	 * 	@return string Hash */
-	function hash($pwd){
-		$hash = md5($salt . $pwd);
-		return $hash;
-	}
-	
-    /** starts a session*/
-    public function startSession(){
-        session_start();
-		ob_start();
-    }
+
 	
 	/**check the user of $_Session */
 	function checkUser (){
 		if(is_numeric($_SESSION["UID"])){
-			$sql = "Select id, pwd from member where id = " . $_SESSION["UID"];
-			$result = parent::$db->execute($sql);
+			$sql = "Select id, pwd from member where id=" . $_SESSION["UID"];
+			$result = $db->execute($sql);
 			$check = mysqli_fetch_object($result);
 			if (($this->hashPWD == $check->pwd) && ($this->userID == $check->id) ){
 				return true;
@@ -59,9 +58,12 @@ class session{
 	/** checks PWD during login
 	 * @return boolean */
 	function checkPWD(){
+		echo "test";
 		$sql = "Select id, pwd from member where id =$this->userID";
-		$result = parent::$db->execute($sql);
+		$result = $this->db->execute($sql);
 		$check = mysqli_fetch_object($result);
+		$anz = mysqli_num_rows(result);
+		if($anz == 0){return false;}
 		if (($this->hashPWD == $check->pwd) && ($this->userID == $check->id) ){
 			return true;
 		}
@@ -80,7 +82,7 @@ class session{
 	function writeSession($id, $hash){
 		$_SESSION["UID"] = $id;
 		$_SESSION["HASH"] = $hash;
-		//Location
+		header("Location:http://localhost/inde.php");
 	}
     
     /** ends session on website*/
