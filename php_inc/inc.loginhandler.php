@@ -4,9 +4,9 @@
 if(isset($_POST["loginsubmit"])){
 	$site->setSession(new session($site->getDB(), "mail_pwd", $_POST["email"], $_POST["pwd"] ));
 	if($site->getSession()->checkPWD()){
-		$site.getSession()->writeSession();
+		$site->getSession()->writeSession();
 	} else{
-		$site.setSession(null);
+		$site->setSession(null);
 	}
 }
 

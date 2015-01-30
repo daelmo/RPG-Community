@@ -29,9 +29,9 @@ class session{
 			
 			case ("mail_pwd"):	
 				$email = htmlspecialchars($ident);
-				$sql = "Select * from member where email='$email'";
-				$result = $this->db->execute($sql); 
-				$ergebnis = mysqli_fetch_object($result);
+				$sql = "Select pwd, id from member where email='$email'";
+				$result = $this->db->execute($sql);
+				$ergebnis = $result->fetch_object();
 				$this->userID = $ergebnis->id;
 				$this->hashPWD = $this->myHash($passw);
 				break;
@@ -41,8 +41,8 @@ class session{
 	
 	/**check the user of $_Session */
 	function checkUser (){
-		if(is_numeric($_SESSION["UID"])){
-			$sql = "Select id, pwd from member where id=" . $_SESSION["UID"];
+		if(isset($_SESSION["UID"])){
+			$sql = "Select id, pwd from member where id=" . int($_SESSION["UID"]);
 			$result = $db->execute($sql);
 			$check = mysqli_fetch_object($result);
 			if (($this->hashPWD == $check->pwd) && ($this->userID == $check->id) ){
@@ -58,11 +58,10 @@ class session{
 	/** checks PWD during login
 	 * @return boolean */
 	function checkPWD(){
-		echo "test";
-		$sql = "Select id, pwd from member where id =$this->userID";
+		$sql = "Select id, pwd from member where id ='$this->userID'";
 		$result = $this->db->execute($sql);
 		$check = mysqli_fetch_object($result);
-		$anz = mysqli_num_rows(result);
+		$anz = mysqli_num_rows($result);
 		if($anz == 0){return false;}
 		if (($this->hashPWD == $check->pwd) && ($this->userID == $check->id) ){
 			return true;
@@ -82,7 +81,7 @@ class session{
 	function writeSession($id, $hash){
 		$_SESSION["UID"] = $id;
 		$_SESSION["HASH"] = $hash;
-		header("Location:http://localhost/inde.php");
+		header("Location:http://localhost/RPG-Community/index.php");
 	}
     
     /** ends session on website*/

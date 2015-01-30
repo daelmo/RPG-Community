@@ -23,7 +23,15 @@ class DB{
 	/** executes and proofs SQL strings
 	 * @param string $sql */
 	public function execute($sql){
-		return mysqli_query($this->db, $sql)or die('Unable to run query:' . mysql_error());
+		return mysqli_query($this->db, $sql);
+	}
+	
+	public function error() {
+		return $this->db->error;
+	}
+	
+	public function connectError() {
+		return $this->db->connect_error;
 	}
 }
 

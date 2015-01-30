@@ -21,6 +21,7 @@ class site{
 	public function __construct($ID) {
 		$this->ID = $ID;
 		$this->db = new DB();
+		$this->initVar();
 	}
 	
 	/** initialize variables from database */
