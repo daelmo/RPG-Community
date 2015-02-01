@@ -1,14 +1,7 @@
 <?php 
+	$pageID = 1;
 	require_once './php_inc/inc.header.php';
-//CREATE FILE
-	//create site
-	$site = new mainsite(1);	
-	require_once 'php_inc/inc.loginhandler.php';
-//CREATE PAGE	
-	require_once 'php_inc/inc.htmlhead.php';
-	require_once 'php_inc/inc.htmlmenu.php';
-	//build Slider
-	$site->getSlider()->build();
+
 	?>
 	
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" ></script>  

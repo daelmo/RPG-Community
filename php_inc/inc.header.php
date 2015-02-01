@@ -5,11 +5,7 @@ require_once 'php_class/class.db.php';
 require_once 'php_class/class.user.php';
 require_once 'php_class/class.session.php';
 require_once 'php_class/class.site.php';
-
-//get all subclasses
-require_once 'php_class/class.mainsite.php';
-require_once 'php_class/class.slider.php';
-
+require_once 'php_class/class.template.php';
 
 //properties code warnings
 error_reporting(E_ALL);
@@ -21,6 +17,22 @@ error_reporting(E_ALL);
 //set_include_path("RPG-Community/");
 //ini_set('include_path', '/opt/lampp/htdocs/RPG-Community/');
 
+	$site = new site($pageID);
+		require_once 'php_inc/inc.loginhandler.php';
+	
+	//htmlhead
+		$htmlHeadTpl = new template();
+		$htmlHeadTpl->addValue("title", $site->getTitle());
+		$htmlHeadTpl->addValue("description", $site->getDescription());
+		include("php_tpl/tpl.htmlhead.php");
+		
+		//headline
+		$headlineTpl = new template();
+		if($site->getUser() != NULL) $headlineTpl ->addValue("name", $site->getUser()->getName());
+		include("php_tpl/tpl.headline.php");
+		
+		$menuTpl = new template();
+		include("php_tpl/tpl.menu.php");
 
 
 ?>
