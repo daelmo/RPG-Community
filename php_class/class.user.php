@@ -5,7 +5,8 @@
  */
 class user{
 	private $profil;
-	private $id;
+	private $id = NULL;
+	private $db = NULL;
 	
 	public $vorname;
 	public $nachname;
@@ -16,30 +17,38 @@ class user{
 	public $rang;
 	public $img;
 	public $lng;
+	public $last_login;
+	public $last_post;
+	public $last_rpg;
 	
 	/** constructs a user objekt to save user data*/
-	function __construct($id){
+	function __construct($db, $id){
+		$this->db = $db;
 		$this->initVar($id);	
 	}
 	
 	/** initializes values*/
 	function initVar($id){
 		$sql= "Select * from member where id=$id";
-		$result = parent::$db->execute($sql);
+		$result = $this->db->execute($sql);
 		$user = mysqli_fetch_object($result);
 		$this->vorname = $user->vorname;
 		$this->nachname = $user->nachname;
-		$this->birth = $user->birth;
-		$this->rang = $user->rang;
+		$this->birth = $user->gebtag;
+		$this->rang = $user->typ;
 		$this->img =$user->img;
 		$this->email = $user->email;
-		$this->aktiv = $user->aktiv;
+		$this->aktiv = $user->status;
 		$this->beitritt = $user->beitritt;
+		$this->last_login = $user->last_login;
+		$this->last_post = $user->last_post;
+		$this->last_rpg = $user->last_rpg;
+		
 	}
 	
 	/** gets name of user */
 	function getName(){
-		return $vorname . " " . $nachname;
+		return $this->vorname . " " . $this->nachname;
 	}
 	
 	/** delete user completely from system */
@@ -64,7 +73,11 @@ class user{
 		
 	}
 	 
-	
+	public function getID() {
+		return $this->id;
+	}
+
+
 	
 	
 	

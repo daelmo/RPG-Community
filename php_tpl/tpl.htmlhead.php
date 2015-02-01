@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title><?php echo $htmlHeadTpl->replace["title"]; ?> </title>
+  <title><?php echo $htmlHeadTpl["title"]; ?> </title>
   <link rel="icon" href="/img/favicon/favicon.ico" >
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta http-equiv="pragma" content="no-cache">
@@ -8,7 +8,7 @@
   <meta name="language" content="de">
   <meta name="publisher" content="Josephine Rehak">
   <meta name="copyright" content="Josephine Rehak">
-  <meta name="description" content="<?php echo $htmlHeadTpl->replace["description"]; ?>" >
+  <meta name="description" content="<?php echo $htmlHeadTpl["description"]; ?>" >
   <meta name="keywords" content="">
   <meta name="page-topic" content="Rollenspiele, RPG">
   <meta name="page-type" content="Community">

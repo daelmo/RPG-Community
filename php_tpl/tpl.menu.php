@@ -1,5 +1,5 @@
 <?php
-
+if($site->getUser()!=NULL){
 echo "	
 <nav>
 	<ul>
@@ -44,7 +44,7 @@ echo "
 			</div>
 		</li>";
 
-
+if($site->getUser()->rang = 4){
 	echo "<li class='drop'>
 				<a href='#'>Administration</a>
 				<div class='dropdownContain'>
@@ -59,7 +59,11 @@ echo "
 					</div>
 				</div>
 			</li>"; 
+}
 	echo " 				
 	</ul>
-</nav>";
+</nav>";	
+} else { 
+	echo "<nav></nav>";
+}
 ?>

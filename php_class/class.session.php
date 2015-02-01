@@ -21,6 +21,7 @@ class session{
 	/** creates session out of mail and pwd or hash and id */
 	function __construct($db, $string, $ident, $passw) {
 		$this->db = $db;
+		
 		switch ($string):
 			case ("id_hash"):
 				$this->userID = $ident;
@@ -42,8 +43,8 @@ class session{
 	/**check the user of $_Session */
 	function checkUser (){
 		if(isset($_SESSION["UID"])){
-			$sql = "Select id, pwd from member where id=" . int($_SESSION["UID"]);
-			$result = $db->execute($sql);
+			$sql = "Select id, pwd from member where id=" . $_SESSION["UID"];
+			$result = $this->db->execute($sql);
 			$check = mysqli_fetch_object($result);
 			if (($this->hashPWD == $check->pwd) && ($this->userID == $check->id) ){
 				return true;
@@ -71,16 +72,16 @@ class session{
 	
 	/** generates user after checked session for site */
 	function generateUser(){
-		$user = new user($this->userID);
+		$user = new user($this->db, $this->userID);
 		return $user;
 	}
 	
 	/**writes in $_Session
 	 * @param int $id 
 	 * @param string $hash passwordhash	 */
-	function writeSession($id, $hash){
-		$_SESSION["UID"] = $id;
-		$_SESSION["HASH"] = $hash;
+	function writeSession(){
+		$_SESSION["UID"] = $this->userID;
+		$_SESSION["HASH"] = $this->hashPWD;
 		header("Location:http://localhost/RPG-Community/index.php");
 	}
     

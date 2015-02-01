@@ -6,9 +6,9 @@
  */
 
 class site{
-	private $db =null;
-	private $session = null;
-	private $user = null;
+	private $db =NULL;
+	private $session = NULL;
+	private $user = NULL;
 	private $ID;
 	
 	private $title;
